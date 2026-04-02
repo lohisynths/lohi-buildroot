@@ -9,8 +9,8 @@ Buildroot subrepo version: `2026.02`.
 From the `buildroot/` directory:
 
 ```sh
-make O=../lohi-out BR2_EXTERNAL=../br2-external raspberrypi2-lohi_defconfig
-make O=../lohi-out BR2_EXTERNAL=../br2-external
+make O=../lohi-out BR2_EXTERNAL=../br2-external raspberrypi2-lohi_defconfig BR2_DL_DIR=../dl
+make O=../lohi-out BR2_EXTERNAL=../br2-external BR2_DL_DIR=../dl
 ```
 
 ## What is included
