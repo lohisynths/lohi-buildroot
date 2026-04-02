@@ -2,7 +2,7 @@
 
 This is the external Buildroot tree for LOHI.
 
-Buildroot subrepo version: `2026.02`.
+Buildroot submodule version: `2026.02`.
 
 ## Usage
 
