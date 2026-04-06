@@ -1,4 +1,4 @@
-# LOHI br2-external
+# LOHI Raspberry Pi 2 external tree
 
 This is the external Buildroot tree for LOHI.
 
@@ -9,8 +9,8 @@ Buildroot submodule version: `2026.02`.
 From the `buildroot/` directory:
 
 ```sh
-make O=../lohi-out BR2_EXTERNAL=../br2-external raspberrypi2-lohi_defconfig BR2_DL_DIR=../dl
-make O=../lohi-out BR2_EXTERNAL=../br2-external BR2_DL_DIR=../dl
+make O=../lohi-raspi2-out BR2_EXTERNAL=../lohi-raspberrypi2 raspberrypi2-lohi_defconfig BR2_DL_DIR=../dl
+make O=../lohi-raspi2-out BR2_EXTERNAL=../lohi-raspberrypi2 BR2_DL_DIR=../dl
 ```
 
 ## What is included
