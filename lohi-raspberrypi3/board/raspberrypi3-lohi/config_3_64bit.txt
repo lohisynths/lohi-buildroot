@@ -31,4 +31,5 @@ enable_uart=1
 dtdebug=1
 dtparam=i2s=on
 dtoverlay=hifiberry-dac
+dtoverlay=disable-wifi
 dtoverlay=disable-bt
