@@ -36,7 +36,7 @@ The Raspberry Pi 3 B LOHI defconfig builds a Raspberry Pi 3 B 64-bit image with:
 
 - the shared Raspberry Pi 3 64-bit post-build and post-image scripts
 - the shared Raspberry Pi patch directory
-- a LOHI-specific `config_3_64bit.txt` with `dtdebug=1`, `dtparam=i2s=on`, `dtoverlay=hifiberry-dac`, `dtoverlay=disable-wifi`, `dtoverlay=disable-bt`, and `arm_64bit=1`
+- a LOHI-specific `config_3_64bit.txt` with `dtparam=i2s=on`, `dtoverlay=hifiberry-dac`, `dtoverlay=disable-wifi`, `dtoverlay=disable-bt`, and `arm_64bit=1`
 - a board-local rootfs overlay that installs `S15cpufreq` to set all CPU governors to `performance` during boot
 - a LOHI-specific `cmdline.txt` with `root=/dev/mmcblk0p2 rootwait console=tty1 isolcpus=1,2,3 nohz_full=1,2,3 rcu_nocbs=1,2,3`
 - a `pi` user defined in `users_table.txt`
