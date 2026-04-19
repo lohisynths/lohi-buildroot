@@ -1,1 +1,1 @@
-root=/dev/mmcblk0p2 rootwait console=tty1 isolcpus=1,2,3
+root=/dev/mmcblk0p2 rootwait console=tty1 isolcpus=1,2,3 nohz_full=1,2,3 rcu_nocbs=1,2,3
