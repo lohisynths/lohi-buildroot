@@ -28,7 +28,6 @@ arm_64bit=1
 # Enable the hardware UART on the GPIO header.
 enable_uart=1
 
-dtdebug=1
 dtparam=i2s=on
 dtoverlay=hifiberry-dac
 dtoverlay=disable-wifi
