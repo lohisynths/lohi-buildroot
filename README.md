@@ -20,6 +20,7 @@ make O=../lohi-raspi3-out BR2_EXTERNAL=../lohi-raspberrypi3 BR2_DL_DIR=../dl
 - `lohi-raspberrypi3/configs/raspberrypi3-lohi_defconfig`
 - `lohi-raspberrypi3/board/raspberrypi3-lohi/config_3_64bit.txt` for Raspberry Pi firmware settings
 - `lohi-raspberrypi3/board/raspberrypi3-lohi/cmdline.txt` for kernel boot arguments
+- `lohi-raspberrypi3/board/raspberrypi3-lohi/lohi-linux.fragment` for kernel CPU isolation and low-latency tuning
 - `lohi-raspberrypi3/board/raspberrypi3-lohi/overlay/etc/init.d/S15cpufreq` to set all CPU governors to `performance` at boot
 - `lohi-raspberrypi3/board/raspberrypi3-lohi/overlay/etc/security/limits.conf` to allow realtime scheduling and memory locking for `pi`
 - `lohi-raspberrypi3/board/raspberrypi3-lohi/overlay/etc/pam.d/sshd` so SSH logins for `pi` also apply PAM limits
@@ -38,7 +39,8 @@ The Raspberry Pi 3 B LOHI defconfig builds a Raspberry Pi 3 B 64-bit image with:
 - the shared Raspberry Pi patch directory
 - a LOHI-specific `config_3_64bit.txt` with `dtparam=i2s=on`, `dtoverlay=hifiberry-dac`, `dtoverlay=disable-wifi`, `dtoverlay=disable-bt`, and `arm_64bit=1`
 - a board-local rootfs overlay that installs `S15cpufreq` to set all CPU governors to `performance` during boot
-- a LOHI-specific `cmdline.txt` with `root=/dev/mmcblk0p2 rootwait console=tty1 isolcpus=1,2,3 nohz_full=1,2,3 rcu_nocbs=1,2,3`
+- a LOHI-specific `cmdline.txt` with `root=/dev/mmcblk0p2 rootwait console=tty1 isolcpus=domain,managed_irq,1,2,3 nohz_full=1,2,3 rcu_nocbs=1,2,3 irqaffinity=0 threadirqs`
+- a kernel config fragment that enables full dynticks, RCU callback offload, 1000 Hz timer frequency, performance CPU frequency governor defaults, and disables scheduler autogrouping
 - a `pi` user defined in `users_table.txt`
 - `linux-pam` enabled so login sessions can apply resource limits
 - PAM limits for `pi` that set `rtprio 99` and `memlock unlimited`
